@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Classifier</title>
+</head>
+<body>
+    <h1>Upload an Image of a Handwritten Digit!</h1>
+    <!-- create a form for user to upload an image file-->
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <!-- create a file input field for user to upload a file-->
+        <input type="file" name="file" accept="image/*">
+        <!-- create a submit button -->
+        <input type="submit" value="Predict">
+    </form>
+    <!-- create an empty paragraph to display the result-->
+    <p id="result"></p>
+
+    <!-- script block for JavaScript-->
+    <script>
+        // select the form element of the HTML page and stores it in a variable 
+        const form = document.querySelector('form');
+        // attach an event listener to the form that triggers when the form is submitted
+        form.onsubmit = async (e) => {
+            // prevent page from reloading when form is submitted
+            e.preventDefault();
+            // create a new FormData object which stores data from the form
+            const formData = new FormData(form);
+            // sends a POST request to the /predict endpoint with the form data (uploaded file) as the request body
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData
+            });
+            // convert the response to JSON object
+            const result = await response.json();
+            // update the content of the empty paragraph with the id='result' to display the prediction
+            document.getElementById('result').innerText = 'Prediction: ' + result.prediction;
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+/* Style for the entire body */
+body {
+    font-family: 'Courier New', Courier, monospace; /* Font for all text */
+    background-color: #e0f7fa; /* Light blue background */
+    display: flex;
+    justify-content: center; /* Horizontally center elements */
+    align-items: center; /* Vertically center elements */
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+}
+
+/* Style for the header */
+h1 {
+    color: #01579b; /* Dark blue color */
+    background-color: #81d4fa; /* Lighter blue background for the header block */
+    padding: 20px;
+    border: 2px solid #0288d1; /* Slightly darker blue border */
+    text-align: center;
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+/* Style for the form */
+form {
+    background-color: #b3e5fc; /* Light blue background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Slight shadow */
+}
+
+/* Style for the file input and submit button */
+input[type="file"], input[type="submit"] {
+    display: block;
+    margin: 10px auto; /* Center elements within the form */
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace; /* Consistent font */
+}
+
+/* Style for the result paragraph */
+#result {
+    color: #01579b; /* Dark blue text color */
+    text-align: center;
+    margin-top: 20px;
+}
