@@ -1,0 +1,15 @@
+# Ignore virtual environment
+.venv/
+
+# Ignore MacOS system files
+.DS_Store
+
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# Ignore log files
+*.log
+
+# Ignore other dependencies
+node_modules/
