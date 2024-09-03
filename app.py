@@ -20,6 +20,11 @@ def prepare_image(image):
     image = image.resize((28,28))
     # convert to numpy array and normalize
     image = np.array(image).astype('float32') / 255.0
+    # apply threshold to reduce background noise
+    image[image < 0.1] = 0.0
+    # invert image so it matches the MNIST data the model has been trained on
+    image = ImageOps.invert(Image.fromarray(np.uint8(image * 255)))
+    image = np.array(image).astype('float32') / 255.0
     # reshape to match the models input shape
     image = image.reshape(1, 28, 28, 1)
     return image
